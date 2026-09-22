@@ -145,13 +145,13 @@ img {
 /* ===== HERO ===== */
 .hero {
   background:
-    linear-gradient(rgba(39, 58, 57, 0.85), rgba(59, 94, 91, 0.85)),
+    linear-gradient(rgba(39, 58, 57, 0.3) 0%, rgba(59, 94, 91, 0.9) 100%),
     url("../img/salmo 27 logos/Portada-facebook.jpg");
   background-size: cover;
-  background-position: center bottom;
+  background-position: center top;
   background-repeat: no-repeat;
   color: var(--color-white);
-  padding: 2rem 0 4rem;
+  padding: 5rem 0 4rem;
   position: relative;
 }
 
