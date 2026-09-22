@@ -152,17 +152,22 @@ img {
 
 /* ===== HERO ===== */
 .hero {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  background:
+    linear-gradient(rgba(39, 58, 57, 0.85), rgba(59, 94, 91, 0.85)),
+    url("../img/salmo 27 logos/Portada-facebook.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   color: var(--color-white);
-  padding: 4rem 0 3rem;
+  padding: 5rem 0;
   position: relative;
-  overflow: hidden;
 }
 
 .hero__inner {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
+  text-align: center;
   align-items: center;
 }
 
@@ -189,6 +194,7 @@ img {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* ===== BOTONES ===== */
