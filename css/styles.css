@@ -55,20 +55,12 @@ img {
 
 /* ===== HEADER ===== */
 .header {
-  background:
-    linear-gradient(rgba(39, 58, 57, 0.85), rgba(59, 94, 91, 0.85)),
-    url("../img/salmo 27 logos/Portada-facebook.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-color: var(--color-primary);
   border-bottom: 2px solid var(--color-accent);
   position: sticky;
   top: 0;
   z-index: 100;
-  min-height: 160px;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  min-height: 80px;
 }
 
 .header__inner {
@@ -156,19 +148,19 @@ img {
     linear-gradient(rgba(39, 58, 57, 0.85), rgba(59, 94, 91, 0.85)),
     url("../img/salmo 27 logos/Portada-facebook.jpg");
   background-size: cover;
-  background-position: center center;
+  background-position: center top;
   background-repeat: no-repeat;
   color: var(--color-white);
-  padding: 5rem 0;
+  padding: 2rem 0 4rem;
   position: relative;
 }
 
 .hero__inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
+  gap: 2rem;
   text-align: center;
-  align-items: center;
+  align-items: start;
 }
 
 .hero__eyebrow {
