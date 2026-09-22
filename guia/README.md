@@ -48,45 +48,40 @@ salmo27/
 
 ## Secciones de la Página Web (`index.html`)
 
-1. **Header** — Logo + navegación (Inicio, Catálogo, Categorías, Nosotros, Contacto). Menú responsive con toggle para móviles.
+1. **Header** — Logo agrandado (64px) + navegación (Inicio, Catálogo, Categorías, Nosotros, Contacto). Menú responsive con toggle para móviles. Redes sociales (Facebook, Instagram, WhatsApp) con íconos SVG `img/iconos/`.
 2. **Hero** — Banner principal con título, descripción y botones de acción. Fondo degradado primario → accent.
 3. **Catálogo de Facebook** — Imagen destacada que enlaza a la página de Facebook.
 4. **Categorías** — Grid de 6 tarjetas: Biblias, Literatura cristiana, Artes y decoración, Música cristiana, Artículos de oración, Regalos cristianos.
 5. **Sobre nosotros** — Texto institucional + estadísticas.
 6. **Contacto** — Información de contacto + formulario (nombre, email, mensaje).
-7. **Footer** — Logo, enlaces a redes sociales, año dinámico y texto institucional.
+7. **Footer** — Logo, íconos de redes sociales SVG, año dinámico y texto institucional.
 
 ## Tecnologías
 
 - **HTML5** — Estructura semántica, responsive con `viewport`.
 - **CSS3** — Variables CSS personalizadas, Grid, Flexbox, media queries (mobile-first + tablet).
 - **JavaScript (vanilla)** — `main.js` con IIFE, toggle de menú móvil, año automático en footer, validación de formulario.
+- **SVGs** — Íconos de redes sociales en `img/iconos/` (facebook.svg, instagram.svg, whatsapp.svg).
 
 ## Estado del Repositorio Git
 
 - **Rama principal**: `main`
-- **Commit inicial**: `511398e` — "feat: crear sitio web de Salmo 27 librería cristiana"
-- **Remote**: Pendiente de configurar (el usuario ya creó el repositorio en GitHub).
+- **Remote configurado**: `https://github.com/josuecavargas-star/salmo27.git`
+- **Commits**: Ver `git log --oneline` para detalles completos.
 
-## Próximos Pasos (pendientes)
+## Redes Sociales
 
-1. **Configurar el remote de GitHub**:
-   ```bash
-   git remote add origin https://github.com/USUARIO/salmo27.git
-   git push -u origin main
-   ```
-2. **Completar enlaces de redes sociales** — El footer e íconos usan URLs de placeholder. Pendiente de reemplazar con las redes reales del cliente.
-3. **Verificar el enlace de catálogo de Facebook** — Actualmente apunta a `https://www.facebook.com/Salmo27Libreria` como placeholder.
-4. **Deploy en Netlify** — El proyecto está ubicado en `C:\Users\josue\Desktop\netlify\salmo27` lo que sugiere intención de desplegar en Netlify.
+| Plataforma | URL |
+|---|---|
+| Facebook | https://www.facebook.com/salmo27libreria |
+| Instagram | https://www.instagram.com/salmo27_libreriacristiana |
+| WhatsApp | https://api.whatsapp.com/send?phone=%2B50661745609 |
 
-## Cómo Probar Localmente
-
-1. Desde la carpeta `salmo27/`, abrir `index.html` en el navegador.
-2. El sitio no requiere dependencias externas (no usa frameworks ni npm).
-3. Todas las imágenes, CSS y JS son referenciados con rutas relativas.
+Los enlaces están actualizados en header, catálogo y footer.
 
 ## Notas
 
 - No se usan librerías externas (ni Bootstrap, ni jQuery, ni Tailwind).
-- Las imágenes de logoprincipal.png se usan con `filter: brightness(0) invert(1)` en el header/footer para adaptarse al fondo oscuro.
+- El logo `logoprincipal.png` se muestra con colores originales (se removió el filtro de inversión).
+- Los íconos SVG usan `filter: brightness(0) invert(1)` para aparecer blancos sobre fondo oscuro.
 - La validación de formulario es solo frontend (no hay backend configurado).
