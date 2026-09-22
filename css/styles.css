@@ -72,7 +72,6 @@ img {
 .logo__img {
   height: 48px;
   width: auto;
-  filter: brightness(0) invert(1);
 }
 
 /* ===== NAVEGACIÓN ===== */
@@ -432,7 +431,6 @@ img {
 .footer__logo-img {
   height: 40px;
   width: auto;
-  filter: brightness(0) invert(1);
 }
 
 .footer__social {
