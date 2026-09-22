@@ -70,9 +70,42 @@ img {
 }
 
 .logo__img {
-  height: 48px;
+  height: 64px;
   width: auto;
 }
+
+/* ===== REDES SOCIALES EN HEADER ===== */
+.social--header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.social__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social__link:hover {
+  transform: scale(1.1);
+}
+
+.social__icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.social__icon--facebook { color: #1877f2; }
+.social__icon--instagram { color: #d82d7e; }
+.social__icon--whatsapp { color: #25d36f; }
 
 /* ===== NAVEGACIÓN ===== */
 .nav {
