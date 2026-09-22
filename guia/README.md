@@ -7,7 +7,10 @@
 | **Nombre** | Salmo 27 |
 | **Tipo** | Librería cristiana |
 | **Servicios** | Venta de Biblias, literatura cristiana, artículos cristianos para regalo |
-| **Ubicación** | Liberia, Guanacaste, Costa Rica |
+| **Ubicación** | Barrio Condega, iglesia Vida Abundante, Liberia, Guanacaste, Costa Rica |
+| **Email** | libreriasalmo27@gmail.com |
+| **Teléfono** | +506 6174-5609 |
+| **Horario** | Online 24/7 |
 | **Logo** | `img/logoprincipal.png` |
 | **Paleta de colores** | Verde oscuro, verde azulado, beige, verde musgo, malva, gris azulado claro |
 
@@ -15,7 +18,7 @@
 
 | Nombre | Hex | Uso |
 |---|---|---|
-| Verde oscuro / azul noche | `#273A39` | Primary (header, footer, texto principal) |
+| Verde oscuro / azul noche | `#273A39` | Primary (header, footer, texto principal, fondo hero) |
 | Verde azulado / petróleo medio | `#3B5E5B` | Accent, botones, enlaces hover |
 | Beige / crema | `#EAE7D4` | Background de la página |
 | Verde musgo suave | `#818A7D` | Background de secciones alternas |
@@ -33,12 +36,16 @@ salmo27/
 ├── js/
 │   └── main.js         # Funcionalidades (menú móvil, formulario, año dinámico)
 ├── img/
-│   ├── logoprincipal.png
-│   ├── paleta.jpg
-│   └── salmo 27 logos/
+│   ├── logoprincipal.png          # Logo principal
+│   ├── paleta.jpg                 # Paleta de colores de referencia
+│   ├── iconos/                    # Íconos de redes sociales
+│   │   ├── facebook.svg
+│   │   ├── instagram.svg
+│   │   └── whatsapp.svg
+│   └── salmo 27 logos/            # Logos varios
 │       ├── Portada Facebook - Color sólido.png
 │       ├── Portada facebook.psd
-│       ├── Portada-facebook.jpg
+│       ├── Portada-facebook.jpg   # Imagen de portada de Facebook
 │       ├── Salmo 27 - A color - Sin Fondo.png
 │       ├── ... (más logos en PNG, PSD, varios colores)
 │       └── Salmo27- Presentación Elegante 2.png
@@ -48,13 +55,13 @@ salmo27/
 
 ## Secciones de la Página Web (`index.html`)
 
-1. **Header** — Logo agrandado (64px) + navegación (Inicio, Catálogo, Categorías, Nosotros, Contacto). Menú responsive con toggle para móviles. Redes sociales (Facebook, Instagram, WhatsApp) con íconos SVG `img/iconos/`.
-2. **Hero** — Banner principal con título, descripción y botones de acción. Fondo degradado primario → accent.
-3. **Catálogo de Facebook** — Imagen destacada que enlaza a la página de Facebook.
-4. **Categorías** — Grid de 6 tarjetas: Biblias, Literatura cristiana, Artes y decoración, Música cristiana, Artículos de oración, Regalos cristianos.
-5. **Sobre nosotros** — Texto institucional + estadísticas.
-6. **Contacto** — Información de contacto + formulario (nombre, email, mensaje).
-7. **Footer** — Logo, íconos de redes sociales SVG, año dinámico y texto institucional.
+1. **Header** — Logo (64px) + navegación (Inicio, Catálogo, Categorías, Nosotros, Contacto). Menú responsive con toggle para móviles. Redes sociales (Facebook, Instagram, WhatsApp) con íconos SVG en `img/iconos/`. Fondo verde sólido `#273A39`.
+2. **Hero** — Banner principal con imagen de portada de Facebook como fondo + overlay verde semitransparente. Texto centrado: "Librería Cristiana", "Biblias, literatura y artículos para tu espíritu". Botones de acción centrados.
+3. **Catálogo de Facebook** — Imagen de portada destacada que enlaza a la página de Facebook.
+4. **Categorías** — Grid de 3 tarjetas centradas: Biblias, Literatura cristiana, Regalos cristianos.
+5. **Sobre nosotros** — Texto institucional sobre la librería en Liberia + estadísticas.
+6. **Contacto** — Información de contacto (dirección, teléfono, email, horario) + formulario.
+7. **Footer** — Logo agrandado (80px), íconos de redes sociales SVG, año dinámico y texto institucional.
 
 ## Tecnologías
 
@@ -67,7 +74,25 @@ salmo27/
 
 - **Rama principal**: `main`
 - **Remote configurado**: `https://github.com/josuecavargas-star/salmo27.git`
-- **Commits**: Ver `git log --oneline` para detalles completos.
+- **Commits recientes**:
+  ```
+  fe5caa4 feat: bajar imagen hero y actualizar datos de contacto
+  1db8c3b feat: centrar texto hero, bajar imagen de fondo, centrar cards y agrandar logo footer
+  c36e0db feat: header verde sólido y hero con imagen de fondo y texto arriba
+  86abc1b refactor: header con imagen de portada full-height y quitar tarjetas del hero
+  0a2b5ac feat: hero con imagen de portada y texto centrado
+  c4d3f31 fix: corregir logo en header y footer (remover filtro de inversión)
+  511398e feat: crear sitio web de Salmo 27 librería cristiana
+  ```
+
+## Contacto
+
+| Campo | Valor |
+|---|---|
+| **Dirección** | Barrio Condega, iglesia Vida Abundante, Liberia, Guanacaste |
+| **Teléfono** | +506 6174-5609 |
+| **Email** | libreriasalmo27@gmail.com |
+| **Horario** | Online 24/7 |
 
 ## Redes Sociales
 
@@ -82,6 +107,7 @@ Los enlaces están actualizados en header, catálogo y footer.
 ## Notas
 
 - No se usan librerías externas (ni Bootstrap, ni jQuery, ni Tailwind).
-- El logo `logoprincipal.png` se muestra con colores originales (se removió el filtro de inversión).
+- El logo `logoprincipal.png` se muestra con colores originales.
 - Los íconos SVG usan `filter: brightness(0) invert(1)` para aparecer blancos sobre fondo oscuro.
 - La validación de formulario es solo frontend (no hay backend configurado).
+- Favicon configurado con `logoprincipal.png` y `apple-touch-icon`.
