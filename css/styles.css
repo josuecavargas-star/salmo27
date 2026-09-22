@@ -88,7 +88,6 @@ img {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  color: var(--color-white);
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -97,15 +96,12 @@ img {
   transform: scale(1.1);
 }
 
-.social__icon {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
+.social__img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
 }
-
-.social__icon--facebook { color: #1877f2; }
-.social__icon--instagram { color: #d82d7e; }
-.social__icon--whatsapp { color: #25d36f; }
 
 /* ===== NAVEGACIÓN ===== */
 .nav {
