@@ -67,7 +67,54 @@ salmo27/
 
 - **HTML5** — Estructura semántica, responsive con `viewport`.
 - **CSS3** — Variables CSS personalizadas, Grid, Flexbox, media queries (mobile-first + tablet).
-- **JavaScript (vanilla)** — `main.js` con IIFE, toggle de menú móvil, año automático en footer, validación de formulario.
+- **JavaScript (vanilla)** — `main.js` con IIFE, toggle de menú móvil, año automático en footer, envío de formulario vía fetch a Google Apps Script, validación de formulario.
+
+## Conexión Formulario → Google Sheets (Google Apps Script)
+
+El formulario de contacto envía datos a un **Google Apps Script web app** que escribe en una hoja de cálculo.
+
+### URL del Web App
+```
+https://script.google.com/macros/s/AKfycbwiBIlYGXbXgAwJJ5ugdCm70cf4W27_eW_qkEWTFVSREmKnZBbuO6dHFTIXX3NDCMkquA/exec
+```
+
+### Script de Apps Script (configurado en Google)
+```javascript
+function doPost(e) {
+  const data = JSON.parse(e.postData.contents);
+  
+  if (!data.nombre || !data.email || !data.mensaje) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: 'error', msg: 'Datos incompletos' }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+  
+  if (!data.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: 'error', msg: 'Email inválido' }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+  
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  sheet.appendRow([new Date(), data.nombre, data.email, data.mensaje]);
+  
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: 'success' }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+### Qué hace
+1. Recibe datos via POST desde el formulario (nombre, email, mensaje)
+2. Valida que los campos no estén vacíos y el email tenga formato válido
+3. Escribe una nueva fila en la hoja de cálculo con fecha/hora, nombre, email y mensaje
+4. Responde con JSON `{ status: 'success' }` o `{ status: 'error', msg: '...' }`
+
+### Seguridad
+- ✅ Solo escribe a la hoja (no lee ni elimina)
+- ✅ Valida inputs (email, campos requeridos)
+- ⚠️ Sin protección contra bots (se recomienda CAPTCHA futuro)
+- ⚠️ Sin límite de velocidad
 - **SVGs** — Íconos de redes sociales en `img/iconos/` (facebook.svg, instagram.svg, whatsapp.svg).
 
 ## Estado del Repositorio Git
@@ -109,5 +156,5 @@ Los enlaces están actualizados en header, catálogo y footer.
 - No se usan librerías externas (ni Bootstrap, ni jQuery, ni Tailwind).
 - El logo `logoprincipal.png` se muestra con colores originales.
 - Los íconos SVG usan `filter: brightness(0) invert(1)` para aparecer blancos sobre fondo oscuro.
-- La validación de formulario es solo frontend (no hay backend configurado).
+- La validación de formulario incluye frontend + backend (Google Apps Script)
 - Favicon configurado con `logoprincipal.png` y `apple-touch-icon`.
