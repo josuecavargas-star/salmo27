@@ -26,6 +26,7 @@
   }
 
   /* ===== FORMULARIO DE CONTACTO ===== */
+  const CONTACT_FORM_URL = "https://script.google.com/macros/s/AKfycbwiBIlYGXbXgAwJJ5ugdCm70cf4W27_eW_qkEWTFVSREmKnZBbuO6dHFTIXX3NDCMkquA/exec";
   const contactForm = document.getElementById("contactForm");
   const formNote = document.getElementById("formNote");
 
@@ -43,9 +44,38 @@
         return;
       }
 
-      formNote.textContent = "¡Gracias por tu mensaje! Nos pondremos en contacto pronto.";
-      formNote.style.color = "#3b5e5b";
-      contactForm.reset();
+      if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+        formNote.textContent = "Por favor, ingresa un email válido.";
+        formNote.style.color = "#7d6b73";
+        return;
+      }
+
+      fetch(CONTACT_FORM_URL, {
+        method: "POST",
+        mode: "cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre: nombre, email: email, mensaje: mensaje })
+      })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Error de red: " + response.status);
+          }
+          return response.json();
+        })
+        .then(function (data) {
+          if (data.status === "success") {
+            formNote.textContent = "¡Gracias por tu mensaje! Nos pondremos en contacto pronto.";
+            formNote.style.color = "#3b5e5b";
+            contactForm.reset();
+          } else {
+            formNote.textContent = data.msg || "Error al enviar el mensaje.";
+            formNote.style.color = "#7d6b73";
+          }
+        })
+        .catch(function (error) {
+          formNote.textContent = "Error al enviar: " + error.message;
+          formNote.style.color = "#7d6b73";
+        });
     });
   }
 })();
